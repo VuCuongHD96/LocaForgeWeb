@@ -1,8 +1,8 @@
-import "./style.css";
 import "reflect-metadata";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { TodoScreen } from "../Todo/TodoScreen";
+import "../LocalizeForge/localize-forge.css";
+import { LocalizeForgeApp } from "../LocalizeForge/LocalizeForgeApp";
 
 const appRoot = document.querySelector<HTMLDivElement>("#app");
 
@@ -12,6 +12,6 @@ if (!appRoot) {
 
 ReactDOM.createRoot(appRoot).render(
   <React.StrictMode>
-    <TodoScreen />
+    <LocalizeForgeApp />
   </React.StrictMode>,
 );
