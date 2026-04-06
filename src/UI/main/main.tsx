@@ -2,7 +2,7 @@ import "./style.css";
 import "reflect-metadata";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { TodoScreen } from "../Todo/TodoScreen";
+import { SideNav } from "../SideNav/SideNav";
 
 const appRoot = document.querySelector<HTMLDivElement>("#app");
 
@@ -12,6 +12,6 @@ if (!appRoot) {
 
 ReactDOM.createRoot(appRoot).render(
   <React.StrictMode>
-    <TodoScreen />
+    <SideNav onViewChange={() => { }} />
   </React.StrictMode>,
 );

@@ -1,0 +1,85 @@
+.lf-app {
+  --lf-bg: #0d1117;
+  --lf-bg-elevated: #161b22;
+  --lf-bg-muted: #21262d;
+  --lf-border: #30363d;
+  --lf-border-subtle: #21262d;
+  --lf-text: #c9d1d9;
+  --lf-text-muted: #8b949e;
+  --lf-text-faint: #6e7681;
+  --lf-accent: #58a6ff;
+  --lf-accent-muted: rgba(88, 166, 255, 0.15);
+  --lf-success: #3fb950;
+  --lf-warning: #d29922;
+  --lf-danger: #f85149;
+  --lf-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+  --lf-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --lf-sidebar-w: 220px;
+  --lf-top-h: 48px;
+  --lf-status-h: 24px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  min-height: 0;
+  background: var(--lf-bg);
+  color: var(--lf-text);
+  font-family: var(--lf-sans);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.lf-app *,
+.lf-app *::before,
+.lf-app *::after {
+  box-sizing: border-box;
+}
+
+
+.lf-sidebar {
+  width: var(--lf-sidebar-w);
+  flex-shrink: 0;
+  border-right: 1px solid var(--lf-border);
+  background: var(--lf-bg-elevated);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.lf-nav-section {
+  padding: 10px 12px 8px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lf-text-faint);
+  text-align: left;
+}
+
+.lf-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  margin: 1px 4px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--lf-text-muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lf-nav-item:hover {
+  background: var(--lf-bg-muted);
+  color: var(--lf-text);
+}
+
+
+.lf-nav-icon {
+  font-size: 14px;
+  opacity: 0.85;
+}
