@@ -1,11 +1,12 @@
 import "./style.css";
 import "reflect-metadata";
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { SideNav } from "../SideNav/SideNav";
 import { TopBar } from "../Topbar/TopBar";
-import { type WorkspaceViewData } from "../SideNav/WorkspaceViewData";
+import { type WorkspaceViewData, dashboard } from "../SideNav/WorkspaceViewData";
 import { ProjectViewData } from '../ViewData/ProjectViewData';
+import { DashboardView } from '../Dashboard/DashboardView';
 
 const appRoot = document.querySelector<HTMLDivElement>("#app");
 
@@ -14,9 +15,11 @@ if (!appRoot) {
 }
 
 const App = () => {
+  const [currentView, setCurrentView] = useState<WorkspaceViewData>(dashboard);
 
   const handleViewChange = (view: WorkspaceViewData) => {
     console.log("View changed to:", view);
+    setCurrentView(view);
   };
 
   const handleProjectChange = (projectId: string) => {
@@ -38,10 +41,50 @@ const App = () => {
       <div className="lf-main-content">
         <SideNav onViewChange={handleViewChange} />
         <main className="lf-content">
-          <div style={{ padding: "2rem" }}>
-            <h1>Welcome to Localize Forge</h1>
-            <p>Select a view from the sidebar to get started.</p>
-          </div>
+          {currentView.name === "Dashboard" ? (
+            <DashboardView
+              project={ProjectViewData.DefaultItems[0]}
+              rows={[
+                // {
+                //   id: '1',
+                //   key: 'welcome.title',
+                //   source: 'Welcome to our app',
+                //   context: 'Main landing page title',
+                //   translation: 'Chào mừng đến với ứng dụng của chúng tôi',
+                //   status: 'approved'
+                // },
+                // {
+                //   id: '2',
+                //   key: 'button.submit',
+                //   source: 'Submit',
+                //   context: 'Form submit button',
+                //   translation: 'Gửi',
+                //   status: 'approved'
+                // },
+                // {
+                //   id: '3',
+                //   key: 'error.required',
+                //   source: 'This field is required',
+                //   context: 'Validation error message',
+                //   translation: 'Trường này là bắt buộc',
+                //   status: 'needs_review'
+                // },
+                // {
+                //   id: '4',
+                //   key: 'menu.settings',
+                //   source: 'Settings',
+                //   context: 'Navigation menu item',
+                //   translation: '',
+                //   status: 'untranslated'
+                // }
+              ]}
+            />
+          ) : (
+            <div style={{ padding: "2rem" }}>
+              <h1>{currentView.name}</h1>
+              <p>View content for {currentView.name} will be implemented here.</p>
+            </div>
+          )}
         </main>
       </div>
     </div>

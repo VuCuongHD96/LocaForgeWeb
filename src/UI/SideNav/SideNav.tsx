@@ -1,5 +1,5 @@
 import { workspaceNavItems, type WorkspaceViewData } from "./WorkspaceViewData";
-import "../LocalizeForge/localize-forge.css";
+import "../Dashboard/DashboardView.css";
 
 interface SideNavProps {
   onViewChange: (view: WorkspaceViewData) => void;
